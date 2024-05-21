@@ -1,0 +1,23 @@
+version: "3"
+services:
+  app:
+    image: kennytoro/node-app:v1
+    container_name: node-app
+    ports:
+      - 9595:9800
+    environment:
+      - APP_ENV="PRODUCTION"
+    volumes:
+      - /mnt/c/Users/USER/Documents/docker/test1file:/app/lib
+    command: ["node", "/app/app.js"]
+
+  database:
+    image: mysql
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: "passw0rd"
+    #volumes:
+     # - ./db1_data:/var/lib/mysql
+    ports:
+      - 3309:3306
+  
